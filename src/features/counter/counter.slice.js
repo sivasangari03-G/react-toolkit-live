@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addTodosAPI } from "../todos/todo.api";
 import { initialState } from "./counter.constants"
 
 
@@ -11,7 +12,12 @@ const counterSlice = createSlice({
         },
         decrement(state) {
             state.count--;
-        }
+        },
+    },
+    extraReducers(builder) {
+        builder.addCase(addTodosAPI.fulfilled, (state) => {
+            state.count = 0;
+        })
     }
 })
 
