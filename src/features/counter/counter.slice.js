@@ -5,13 +5,16 @@ import { initialState } from "./counter.constants"
 const counterSlice = createSlice({
     name: "COUNTER",
     initialState,
-    reducer: {
+    reducers: {
         increment(state) {
             state.count++;
+        },
+        decrement(state) {
+            state.count++
         }
     }
 })
 
-export const { increment } = counterSlice.actions;
+export const { increment,decrement } = counterSlice.actions;
 
 export default counterSlice.reducer;
